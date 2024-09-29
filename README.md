@@ -34,17 +34,18 @@ To set up the project on your local machine, follow these steps:
 
 ### Install required dependencies
 1. Create a Virtual Enviorment
-```bash
-python -m venv venv
-```
+    ```bash
+    python -m venv venv
+    ```
 2. Activate the virtual environment
-3. ```bash
- pip install -r requirements.txt
- ```
+3. 
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ### Run the command
-After installing the dependencies, run the application using the following command:
-```
-bash
-python ui.py
-```
+    After installing the dependencies, run the application using the following command:
+    ```
+    bash
+    python ui.py
+    ```
