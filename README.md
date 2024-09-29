@@ -1,27 +1,27 @@
 # Pronunciation Assessment Application
 
-This project is a **Pronunciation Assessment Application** built using Python and Tkinter. It provides real-time speech recognition and feedback on pronunciation accuracy based on a target sentence provided by the user.
+Welcome to the **Pronunciation Assessment Application**! This project is designed to help users improve their pronunciation skills through real-time speech recognition and feedback. Built using Python and Tkinter, it provides an interactive way for users to practice speaking sentences and receive instant feedback on their pronunciation accuracy.
 
 ## Features
 
-- **Real-Time Transcription**: As the user speaks, the application transcribes the speech into text in real time.
-- **Pronunciation Feedback**: Compares the recognized speech against a target sentence and provides feedback on pronunciation accuracy.
-- **User-Friendly Interface**: A simple and intuitive UI built with Tkinter.
+- **Real-Time Transcription**: The application listens as the user speaks and transcribes their speech into text immediately.
+- **Pronunciation Feedback**: Users receive detailed feedback comparing their speech to a target sentence, helping them identify areas for improvement.
+- **User-Friendly Interface**: The intuitive design ensures that users can easily navigate the application and focus on their practice.
 
 ## Technologies Used
 
-- **Python**: Programming language for implementing the application logic.
-- **Tkinter**: GUI toolkit for creating the desktop application.
-- **SpeechRecognition**: Library for speech recognition functionality.
-- **Difflib**: Library for comparing the recognized speech with the target sentence.
+- **Python**: The core programming language for implementing the application logic.
+- **Tkinter**: A powerful GUI toolkit for creating a responsive desktop application.
+- **SpeechRecognition**: A library for enabling speech recognition functionality.
+- **Difflib**: A library used for comparing the recognized speech with the target sentence to assess pronunciation accuracy.
 
 ## Installation
 
-To set up the project on your local machine, follow these steps:
+Follow these steps to set up the project on your local machine:
 
 ### Prerequisites
 
-- **Python**: Ensure you have Python 3.x installed. You can download it from [python.org](https://www.python.org/downloads/).
+- **Python**: Ensure you have Python 3.x installed. Download it from [python.org](https://www.python.org/downloads/).
 
 ### Clone the Repository
 
@@ -30,22 +30,71 @@ To set up the project on your local machine, follow these steps:
 
    ```bash
    git clone https://github.com/arjun988/Voice-Pronouce.git
-  ```
+   ```
 
-### Install required dependencies
-1. Create a Virtual Enviorment
-    ```bash
-    python -m venv venv
-    ```
-2. Activate the virtual environment
-3. 
-    ```bash
-    pip install -r requirements.txt
-    ```
+### Install Required Dependencies
 
-### Run the command
-    After installing the dependencies, run the application using the following command:
-    ```
-    bash
-    python ui.py
-    ```
+1. Navigate to the project directory:
+
+   ```bash
+   cd Voice-Pronouce
+   ```
+
+2. Create a virtual environment:
+
+   ```bash
+   python -m venv venv
+   ```
+
+3. Activate the virtual environment:
+   * On Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+   * On macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+
+4. Install the required dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Run the Application
+
+After installing the dependencies, start the application using the following command:
+
+```bash
+python ui.py
+```
+
+## Usage
+
+1. Open the application, and enter a target sentence in the designated input box.
+2. Click the **Record** button to start listening and transcribing your speech.
+3. Receive immediate feedback on your pronunciation accuracy compared to the target sentence.
+
+## Code Structure
+
+```
+Voice-Pronouce/
+│
+├── main.py            # Core logic for speech recognition and pronunciation assessment
+├── ui.py              # Tkinter UI implementation
+├── requirements.txt   # List of required libraries
+├── .gitignore         # Git ignore file
+└── README.md          # This README file
+```
+
+## Troubleshooting
+
+* If you encounter issues with speech recognition, ensure your microphone is set as the default recording device.
+* Check the console for any error messages that may help diagnose problems with the application.
+
+## Contributing
+
+Contributions to improve the Pronunciation Assessment Application are welcome. Please feel free to submit a Pull Request.
+
+
