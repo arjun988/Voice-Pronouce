@@ -1,4 +1,4 @@
-# ui.py
+
 import tkinter as tk
 from tkinter import messagebox
 from main import recognize_speech_live, compare_pronunciation
