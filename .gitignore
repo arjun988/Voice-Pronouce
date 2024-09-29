@@ -1,0 +1,50 @@
+# Python Bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Configuration files
+*.env
+*.config
+*.ini
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# MacOS specific files
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Pytest cache
+.cache/
+pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Other
+*.swp
