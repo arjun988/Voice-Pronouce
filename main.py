@@ -5,6 +5,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import cmudict
 import os
+from difflib import SequenceMatcher
 
 def ensure_nltk_resources():
     """Ensure all required NLTK resources are downloaded"""
@@ -79,17 +80,29 @@ def compare_pronunciation(user_text, target_text):
         # Calculate similarity ratio using fuzzy matching
         similarity = fuzz.token_sort_ratio(user_text.lower(), target_text.lower()) / 100
 
-        # Identify incorrectly pronounced words
         incorrect_words = []
-        for target_word, user_word in zip(target_words, user_words):
-            if target_word in pronouncing_dict and user_word in pronouncing_dict:
-                target_phonemes = pronouncing_dict[target_word][0]
-                user_phonemes = pronouncing_dict[user_word][0]
+
+        for i, target_word in enumerate(target_words):
+            if i < len(user_words):
+                user_word = user_words[i]
                 
-                if target_phonemes != user_phonemes:
+                # Check exact pronunciation with CMU dictionary
+                if target_word in pronouncing_dict and user_word in pronouncing_dict:
+                    target_phonemes = pronouncing_dict[target_word][0]
+                    user_phonemes = pronouncing_dict[user_word][0]
+                    
+                    if target_phonemes != user_phonemes:
+                        incorrect_words.append(target_word)
+                # Apply fuzzy matching for non-exact words
+                elif fuzz.ratio(target_word, user_word) < 80:
                     incorrect_words.append(target_word)
-            elif fuzz.ratio(target_word, user_word) < 80:
-                incorrect_words.append(target_word)
+                else:
+                    # If the words are close enough, consider them correct
+                    similarity_score = SequenceMatcher(None, target_word, user_word).ratio()
+                    if similarity_score < 0.85:  # Adjust the similarity threshold for tolerance
+                        incorrect_words.append(target_word)
+            else:
+                incorrect_words.append(target_word)  # Remaining target words that aren't in the user speech
 
         # Adjust feedback based on similarity threshold
         if similarity == 1.0:
@@ -97,12 +110,11 @@ def compare_pronunciation(user_text, target_text):
         elif 0.8 < similarity < 1.0:
             return "Improvement required. Focus on the highlighted words.", incorrect_words
         else:
-            return "Pronunciation needs improvement. Focus on the highlighted words.", incorrect_words
+            return "Pronunciation was incorrect. Need improvement", incorrect_words
     except Exception as e:
         print(f"Error in compare_pronunciation: {e}")
         return "Error in pronunciation comparison.", []
-
-
+    
 if __name__ == "__main__":
     print("NLTK resources checked and downloaded if necessary.")
     print("You can now run the UI script to start the application.")
