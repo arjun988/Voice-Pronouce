@@ -3,9 +3,11 @@
 Welcome to the **Pronunciation Assessment Application**! This project is designed to help users improve their pronunciation skills through real-time speech recognition and feedback. Built using Python and Tkinter, it provides an interactive way for users to practice speaking sentences and receive instant feedback on their pronunciation accuracy.
 
 ## Features
-
 - **Real-Time Transcription**: The application listens as the user speaks and transcribes their speech into text immediately.
-- **Pronunciation Feedback**: Users receive detailed feedback comparing their speech to a target sentence, helping them identify areas for improvement.
+- **Pronunciation Feedback**: Users receive detailed feedback comparing their speech to a target sentence, helping them identify areas for improvement. Feedback is color-coded: 
+  - Green for "Good pronunciation!" (when the entire sentence is correctly pronounced).
+  - Yellow for "Pronunciation needs improvement. Focus on the highlighted words." (when the similarity is greater than 0.8 but less than 1).
+  - Red for general improvement needed.
 - **User-Friendly Interface**: The intuitive design ensures that users can easily navigate the application and focus on their practice.
 
 ## Technologies Used
@@ -13,8 +15,8 @@ Welcome to the **Pronunciation Assessment Application**! This project is designe
 - **Python**: The core programming language for implementing the application logic.
 - **Tkinter**: A powerful GUI toolkit for creating a responsive desktop application.
 - **SpeechRecognition**: A library for enabling speech recognition functionality.
-- **Difflib**: A library used for comparing the recognized speech with the target sentence to assess pronunciation accuracy.
-
+- **FuzzyWuzzy**: A library used for comparing the recognized speech with the target sentence to assess pronunciation accuracy.
+- **NLTK**: A library for natural language processing tasks, including tokenization and phoneme extraction.
 ## Installation
 
 Follow these steps to set up the project on your local machine:

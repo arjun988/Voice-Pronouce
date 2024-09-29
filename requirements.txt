@@ -3,3 +3,5 @@ pyaudio
 difflib
 python-Levenshtein
 tk
+nltk
+fuzzywuzzy
