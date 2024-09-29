@@ -24,11 +24,22 @@ def recognize_speech_live(callback):
 
 def compare_pronunciation(user_text, target_text):
     if user_text is None:
-        return "No input received."
+        return "No input received.", []
+
+    # Split the texts into words for comparison
+    user_words = user_text.lower().split()
+    target_words = target_text.lower().split()
     
     # Calculate similarity ratio between the recognized text and the target text
     similarity = difflib.SequenceMatcher(None, user_text.lower(), target_text.lower()).ratio()
+
+    # Identify incorrectly pronounced words
+    incorrect_words = []
+    for target_word in target_words:
+        if target_word not in user_words:
+            incorrect_words.append(target_word)
+
     if similarity > 0.8:
-        return "Good pronunciation!"
+        return "Good pronunciation!", incorrect_words
     else:
-        return "Incorrect pronunciation. Try again."
+        return "Incorrect pronunciation. Try again.", incorrect_words
